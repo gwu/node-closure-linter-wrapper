@@ -44,3 +44,6 @@ Icon
 
 # Eclipse
 .project
+
+# Tests files generated.
+test/files/output.xml

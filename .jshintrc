@@ -7,8 +7,12 @@
   "noarg": true,
   "sub": true,
   "undef": true,
+  "predef": [
+    "expect"
+  ],
   "unused": true,
   "boss": true,
   "eqnull": true,
-  "node": true
+  "node": true,
+  "mocha": true
 }

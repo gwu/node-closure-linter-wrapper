@@ -5,6 +5,8 @@ var closure_linter = require('../lib/closure-linter-wrapper'),
 
 
 describe('Closure Linter Wrapper', function() {
+  /* jshint expr: true */
+
   it('should have gjslint exposed', function() {
     expect(closure_linter.gjslint).to.be.a('function');
   });
@@ -119,7 +121,7 @@ describe('Closure Linter Wrapper', function() {
         reporter: {
           name: 'console'
         }
-      }, function(err, result) {
+      }, function(err) {
         expect(err.code).to.be.equal(2);
         expect(err.info.total).to.be.equal(3);
         done();
@@ -133,7 +135,7 @@ describe('Closure Linter Wrapper', function() {
         reporter: {
           name: 'console'
         }
-      }, function(err, result) {
+      }, function(err) {
         expect(err).to.be.null;
         done();
       });
@@ -146,7 +148,7 @@ describe('Closure Linter Wrapper', function() {
         reporter: {
           name: 'console'
         }
-      }, function(err, result) {
+      }, function(err) {
         expect(err).to.be.null;
         done();
       });
@@ -163,7 +165,7 @@ describe('Closure Linter Wrapper', function() {
         reporter: {
           name: 'console'
         }
-      }, function(err, result) {
+      }, function(err) {
         expect(err.code).to.be.equal(2);
         expect(err.info.total).to.be.equal(2);
         done();
@@ -179,7 +181,7 @@ describe('Closure Linter Wrapper', function() {
         reporter: {
           name: 'console'
         }
-      }, function(err, result) {
+      }, function(err) {
         expect(err).to.be.null;
         done();
       });
@@ -194,7 +196,7 @@ describe('Closure Linter Wrapper', function() {
         reporter: {
           name: 'console'
         }
-      }, function(err, result) {
+      }, function(err) {
         expect(err.code).to.be.equal(2);
         expect(err.info.total).to.be.equal(3);
         expect(err.info.filesCount).to.be.equal(1);
@@ -211,7 +213,7 @@ describe('Closure Linter Wrapper', function() {
         reporter: {
           name: 'console'
         }
-      }, function(err, result) {
+      }, function(err) {
         expect(err.code).to.be.equal(4);
         done();
       });
@@ -226,7 +228,7 @@ describe('Closure Linter Wrapper', function() {
         reporter: {
           name: 'console'
         }
-      }, function(err, result) {
+      }, function(err) {
         expect(err.code).to.be.equal(4);
         done();
       });
@@ -253,7 +255,7 @@ describe('Closure Linter Wrapper', function() {
       });
     });
 
-    it('should export the results to a results file', function() {
+    it('should export the results to a results file', function(done) {
       var expected_report = fs.readFileSync('test/files/expected_report.xml', 'utf8'),
           report;
 
